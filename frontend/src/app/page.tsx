@@ -1,6 +1,22 @@
+import Header from '@/components/Header';
+import HeroSection from '@/components/HeroSection';
+import ServicesSection from '@/components/ServicesSection';
+import GetStartedSection from '@/components/GetStartedSection';
+import ContactSection from '@/components/ContactSection';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <div>Hello World</div>
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main>
+        <HeroSection />
+        <ServicesSection />
+        
+        <GetStartedSection />
+        <ContactSection />
+      </main>
+      <Footer />
+    </div>
   );
 }
