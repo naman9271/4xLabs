@@ -1,0 +1,15 @@
+# Ignore artifacts and build output
+node_modules
+dist
+build
+coverage
+.env
+*.log
+package-lock.json
+yarn.lock
+
+# Ignore lock files and temporary configs
+*.snap
+.vscode
+.next
+out
