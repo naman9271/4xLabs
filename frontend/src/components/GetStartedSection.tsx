@@ -4,8 +4,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Rocket, ArrowRight, Sparkles } from 'lucide-react';
 import Link from 'next/link';
+import { useCalBooking } from '@/hooks/useCalBooking';
+import SchedulingModal from '@/components/SchedulingModal';
+import CalBooker from '@/components/CalBooker';
 
 const GetStartedSection = () => {
+  const { isBookingOpen, selectedAccount, openBooking, closeBooking } = useCalBooking();
+  const [isSchedulingModalOpen, setIsSchedulingModalOpen] = React.useState(false);
+
   return (
     <section className="py-20 relative overflow-hidden">
       {/* Background gradient */}
@@ -57,11 +63,28 @@ const GetStartedSection = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => setIsSchedulingModalOpen(true)}
               className="px-10 py-5 border-2 border-border hover:border-primary/50 text-foreground rounded-xl font-bold text-xl hover:bg-primary/5 transition-all duration-300 min-w-[250px]"
             >
               Schedule a Call
             </motion.button>
           </div>
+
+          {/* Scheduling Modal */}
+          <SchedulingModal
+            isOpen={isSchedulingModalOpen}
+            onClose={() => setIsSchedulingModalOpen(false)}
+            onSelectAccount={openBooking}
+          />
+
+          {/* Cal.com Booking Modal */}
+          {selectedAccount && (
+            <CalBooker
+              username={selectedAccount.username}
+              isOpen={isBookingOpen}
+              onClose={closeBooking}
+            />
+          )}
 
           {/* Trust indicators */}
           <motion.div

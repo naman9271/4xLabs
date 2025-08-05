@@ -12,8 +12,14 @@ import {
   Mail,
   ArrowUp 
 } from 'lucide-react';
+import { useCalBooking } from '@/hooks/useCalBooking';
+import SchedulingModal from '@/components/SchedulingModal';
+import CalBooker from '@/components/CalBooker';
 
 const Footer = () => {
+  const { isBookingOpen, selectedAccount, openBooking, closeBooking } = useCalBooking();
+  const [isSchedulingModalOpen, setIsSchedulingModalOpen] = React.useState(false);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -121,15 +127,14 @@ const Footer = () => {
                   Start Your Project
                 </motion.button>
               </Link>
-              <Link href="/coming-soon">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full px-6 py-3 border border-border hover:border-primary/50 text-foreground rounded-lg font-medium hover:bg-primary/5 transition-all duration-300"
-                >
-                  Book Consultation
-                </motion.button>
-              </Link>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setIsSchedulingModalOpen(true)}
+                className="w-full px-6 py-3 border border-border hover:border-primary/50 text-foreground rounded-lg font-medium hover:bg-primary/5 transition-all duration-300"
+              >
+                Book Consultation
+              </motion.button>
             </div>
           </div>
         </div>
@@ -165,6 +170,22 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      {/* Scheduling Modal */}
+      <SchedulingModal
+        isOpen={isSchedulingModalOpen}
+        onClose={() => setIsSchedulingModalOpen(false)}
+        onSelectAccount={openBooking}
+      />
+
+      {/* Cal.com Booking Modal */}
+      {selectedAccount && (
+        <CalBooker
+          username={selectedAccount.username}
+          isOpen={isBookingOpen}
+          onClose={closeBooking}
+        />
+      )}
     </footer>
   );
 };
