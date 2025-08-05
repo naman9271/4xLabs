@@ -82,19 +82,19 @@ const ContactSection = () => {
                 {
                   icon: Mail,
                   title: "Email Us",
-                  value: "hello@buildup.agency",
+                  value: "hello@100xlabs.com",
                   description: "We'll respond within 24 hours"
                 },
                 {
                   icon: Phone,
                   title: "Call Us",
-                  value: "+1 (555) 123-4567",
+                  value: "+91 99999-99999",
                   description: "Mon-Fri from 9am to 6pm"
                 },
                 {
                   icon: MapPin,
                   title: "Visit Us",
-                  value: "San Francisco, CA",
+                  value: "New Delhi, India",
                   description: "Remote-first, global team"
                 }
               ].map((contact, index) => (
@@ -196,10 +196,10 @@ const ContactSection = () => {
                       className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                     >
                       <option value="">Select Budget Range</option>
-                      <option value="5k-10k">$5k - $10k</option>
-                      <option value="10k-25k">$10k - $25k</option>
-                      <option value="25k-50k">$25k - $50k</option>
-                      <option value="50k+">$50k+</option>
+                      <option value="5k-10k">$50 - $100</option>
+                      <option value="10k-25k">$100 - $250</option>
+                      <option value="25k-50k">$250 - $500</option>
+                      <option value="50k+">$500+</option>
                     </select>
                   </div>
                 </div>

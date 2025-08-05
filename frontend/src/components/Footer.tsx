@@ -28,11 +28,11 @@ const Footer = () => {
                 <Code2 className="h-6 w-6 text-white" />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                BuildUp
+                100xLabs
               </span>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Elite design & development agency crafting exceptional digital experiences 
+              Elite tech innovation labs crafting exceptional digital experiences 
               for forward-thinking businesses worldwide.
             </p>
             <div className="flex space-x-4">
@@ -41,7 +41,7 @@ const Footer = () => {
                 { icon: Twitter, href: '#' },
                 { icon: Linkedin, href: '#' },
                 { icon: Instagram, href: '#' },
-                { icon: Mail, href: 'mailto:hello@buildup.agency' }
+                { icon: Mail, href: 'mailto:hello@100xlabs.com' }
               ].map((social, index) => (
                 <motion.a
                   key={index}
@@ -134,7 +134,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
               <p className="text-muted-foreground text-sm">
-                © 2024 BuildUp Agency. All rights reserved.
+                © 2024 100xLabs. All rights reserved.
               </p>
               <div className="flex space-x-6">
                 <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
