@@ -26,7 +26,7 @@ const GetStartedSection = () => {
           </div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Let's Build Something
+            Let&apos;s Build Something
             <span className="bg-gradient-to-r from-primary via-purple-400 to-accent bg-clip-text text-transparent">
               {" "}Amazing{" "}
             </span>
@@ -34,7 +34,7 @@ const GetStartedSection = () => {
           </h2>
 
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed">
-            Join hundreds of satisfied clients who've transformed their digital presence with 100xLabs. 
+            Join hundreds of satisfied clients who&apos;ve transformed their digital presence with 100xLabs. 
             Your success story starts with a single click.
           </p>
 

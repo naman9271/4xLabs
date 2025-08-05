@@ -109,7 +109,7 @@ const Footer = () => {
           <div className="space-y-6">
             <h3 className="text-lg font-semibold">Get Started</h3>
             <p className="text-muted-foreground">
-              Ready to transform your digital presence? Let's discuss your project today.
+              Ready to transform your digital presence? Let&apos;s discuss your project today.
             </p>
             <div className="space-y-3">
               <Link href="/coming-soon">

@@ -1,1 +1,1 @@
-export const DB_NAME = 'buildUp';
+export const DB_NAME = '100xLabs';

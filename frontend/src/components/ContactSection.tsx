@@ -50,14 +50,14 @@ const ContactSection = () => {
         >
           <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 text-sm mb-6">
             <MessageSquare className="h-4 w-4 text-primary" />
-            <span className="text-primary font-medium">Let's Talk</span>
+            <span className="text-primary font-medium">Let&apos;s Talk</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to Start Your <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Project?</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Get in touch with us today and let's discuss how we can bring your vision to life. 
-            We're here to answer your questions and provide expert guidance.
+            Get in touch with us today and let&apos;s discuss how we can bring your vision to life. 
+            We&apos;re here to answer your questions and provide expert guidance.
           </p>
         </motion.div>
 
@@ -73,7 +73,7 @@ const ContactSection = () => {
             <div>
               <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
               <p className="text-muted-foreground mb-8">
-                Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you within 24 hours.
+                Have a project in mind? We&apos;d love to hear about it. Send us a message and we&apos;ll get back to you within 24 hours.
               </p>
             </div>
 
