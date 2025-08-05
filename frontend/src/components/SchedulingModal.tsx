@@ -36,7 +36,7 @@ export default function SchedulingModal({ isOpen, onClose, onSelectAccount }: Sc
           </div>
           <h2 className="text-2xl font-bold mb-2">Schedule a Meeting</h2>
           <p className="text-muted-foreground">
-            Choose who you'd like to meet with
+            Choose who you&apos;d like to meet with
           </p>
         </div>
 
@@ -72,7 +72,7 @@ export default function SchedulingModal({ isOpen, onClose, onSelectAccount }: Sc
         {/* Footer */}
         <div className="mt-6 text-center">
           <p className="text-xs text-muted-foreground">
-            You'll be redirected to our scheduling platform
+            You&apos;ll be redirected to our scheduling platform
           </p>
         </div>
       </motion.div>
