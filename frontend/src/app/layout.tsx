@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { Navigation } from "@/components/navigation";
-import { Footer } from "@/components/footer";
+import { AuthProvider } from "@/context/auth-context";
+import { AppLayout } from "@/components/layout/app-layout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,12 +23,16 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BuildUp - Professional Tech Services Platform",
-  description: "Connect with expert developers for bug fixes, software development, design work, and comprehensive tech solutions. Get custom quotes and track your project progress.",
-  keywords: ["software development", "bug fixing", "web design", "tech solutions", "custom quotes", "project management"],
-  authors: [{ name: "BuildUp Team" }],
-  viewport: "width=device-width, initial-scale=1",
-  themeColor: "#22D3EE",
+  title: "FreelanceHub - Professional Freelancer Agency Platform",
+  description: "Professional freelance agency delivering exceptional digital solutions. Expert developers, designers, and digital strategists for your business needs.",
+  keywords: ["freelance agency", "web development", "mobile apps", "UI/UX design", "digital marketing", "software development", "project management"],
+  authors: [{ name: "FreelanceHub Team" }],
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#22D3EE',
 };
 
 export default function RootLayout({
@@ -39,13 +43,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} antialiased dev-surface dev-text-primary min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} antialiased bg-cod-gray text-primary min-h-screen`}
       >
-        <Navigation />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <AuthProvider>
+          <AppLayout>
+            {children}
+          </AppLayout>
+        </AuthProvider>
       </body>
     </html>
   );

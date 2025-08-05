@@ -1,122 +1,210 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { 
-  Code2, 
-  Bug, 
-  Palette, 
-  Zap, 
-  CheckCircle, 
-  ArrowRight, 
-  Star,
-  Users,
-  Clock,
-  Shield
-} from "lucide-react";
+'use client';
 
-export default function Home() {
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/auth-context';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { 
+  ArrowRight, 
+  CheckCircle, 
+  Star, 
+  Zap, 
+  Shield, 
+  Clock,
+  Users,
+  Award,
+  TrendingUp
+} from 'lucide-react';
+
+export default function HomePage() {
+  const { user, isLoading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!isLoading && user) {
+      // Redirect authenticated users to dashboard
+      router.push('/dashboard');
+    }
+  }, [user, isLoading, router]);
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-neon-cyan"></div>
+      </div>
+    );
+  }
+
+  // Show landing page for non-authenticated users
   return (
-    <div className="min-h-screen dev-surface">
+    <div className="min-h-screen bg-gradient-to-br from-cod-gray via-mine-shaft to-cod-gray">
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 lg:py-32">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#22D3EE]/10 via-transparent to-[#01C16A]/10" />
-          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-[#22D3EE]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-[#01C16A]/5 rounded-full blur-3xl" />
+      <section className="relative px-6 py-24 mx-auto max-w-7xl">
+        <div className="text-center">
+          <Badge variant="secondary" className="mb-6">
+            ✨ Professional Freelance Agency Platform
+          </Badge>
+          
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-neon-cyan to-electric-blue bg-clip-text text-transparent">
+            FreelanceHub
+          </h1>
+          
+          <p className="text-xl md:text-2xl text-muted mb-8 max-w-3xl mx-auto">
+            Your premier destination for exceptional digital solutions. 
+            Connect with expert freelancers and bring your vision to life.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              onClick={() => router.push('/register')}
+              size="lg" 
+              className="bg-neon-cyan hover:bg-neon-cyan/90 text-cod-gray font-semibold"
+            >
+              Get Started
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            
+            <Button 
+              onClick={() => router.push('/login')}
+              variant="outline" 
+              size="lg"
+              className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-cod-gray"
+            >
+              Sign In
+            </Button>
+          </div>
         </div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <Badge className="dev-bg-accent/10 dev-accent border-0 mb-6">
-              Professional Tech Solutions
-            </Badge>
-            
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold dev-text-primary mb-6 leading-tight">
-              Build Your
-              <span className="block dev-accent">Digital Vision</span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl dev-text-secondary max-w-3xl mx-auto mb-8 leading-relaxed">
-              Connect with expert developers for bug fixes, software development, design work, 
-              and comprehensive tech solutions. Get custom quotes and track your project progress.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button size="lg" className="dev-bg-accent text-black font-semibold px-8 py-6 text-lg dev-interactive">
-                Start Your Project
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button size="lg" variant="outline" className="dev-border dev-text-primary px-8 py-6 text-lg dev-interactive">
-                View Portfolio
-              </Button>
+
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-3 gap-8 mt-24">
+          <Card className="bg-mine-shaft border-border hover:border-neon-cyan/50 transition-colors">
+            <CardHeader>
+              <div className="h-12 w-12 rounded-lg bg-neon-cyan/20 flex items-center justify-center mb-4">
+                <Zap className="h-6 w-6 text-neon-cyan" />
+              </div>
+              <CardTitle>Lightning Fast</CardTitle>
+              <CardDescription>
+                Get your projects delivered with exceptional speed and quality
+              </CardDescription>
+            </CardHeader>
+          </Card>
+
+          <Card className="bg-mine-shaft border-border hover:border-neon-cyan/50 transition-colors">
+            <CardHeader>
+              <div className="h-12 w-12 rounded-lg bg-electric-blue/20 flex items-center justify-center mb-4">
+                <Shield className="h-6 w-6 text-electric-blue" />
+              </div>
+              <CardTitle>Secure & Reliable</CardTitle>
+              <CardDescription>
+                Your projects and data are protected with enterprise-grade security
+              </CardDescription>
+            </CardHeader>
+          </Card>
+
+          <Card className="bg-mine-shaft border-border hover:border-neon-cyan/50 transition-colors">
+            <CardHeader>
+              <div className="h-12 w-12 rounded-lg bg-neon-green/20 flex items-center justify-center mb-4">
+                <Award className="h-6 w-6 text-neon-green" />
+              </div>
+              <CardTitle>Expert Quality</CardTitle>
+              <CardDescription>
+                Work with top-tier professionals who deliver exceptional results
+              </CardDescription>
+            </CardHeader>
+          </Card>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-mine-shaft/50">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-neon-cyan mb-2">500+</div>
+              <div className="text-muted">Projects Completed</div>
             </div>
-            
-            <div className="mt-12 flex flex-wrap justify-center gap-8 dev-text-secondary text-sm">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 dev-success" />
-                <span>Fast Turnaround</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 dev-success" />
-                <span>Expert Developers</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 dev-success" />
-                <span>24/7 Support</span>
-              </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-electric-blue mb-2">150+</div>
+              <div className="text-muted">Expert Freelancers</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-neon-green mb-2">98%</div>
+              <div className="text-muted">Client Satisfaction</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-neon-pink mb-2">24/7</div>
+              <div className="text-muted">Support Available</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 dev-elevated">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 px-6">
+        <div className="mx-auto max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold dev-text-primary mb-4">
-              Our Services
-            </h2>
-            <p className="text-xl dev-text-secondary max-w-2xl mx-auto">
-              From quick fixes to complex solutions, we've got your tech needs covered
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
+            <p className="text-xl text-muted max-w-2xl mx-auto">
+              Comprehensive digital solutions tailored to your business needs
             </p>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: Bug,
-                title: "Bug Fixing",
-                description: "Quick resolution of software bugs and issues",
-                color: "dev-error"
+                title: "Web Development",
+                description: "Modern, responsive websites and web applications",
+                icon: "🌐",
+                features: ["React/Next.js", "Full-stack development", "E-commerce", "API integration"]
               },
               {
-                icon: Code2,
-                title: "Development",
-                description: "Full-stack web and mobile application development",
-                color: "dev-accent"
+                title: "Mobile Apps",
+                description: "Native and cross-platform mobile applications",
+                icon: "📱",
+                features: ["iOS & Android", "React Native", "Flutter", "App Store deployment"]
               },
               {
-                icon: Palette,
-                title: "Design",
-                description: "UI/UX design and brand identity creation",
-                color: "dev-warning"
+                title: "UI/UX Design",
+                description: "Beautiful, intuitive user experiences",
+                icon: "🎨",
+                features: ["User research", "Wireframing", "Prototyping", "Design systems"]
               },
               {
-                icon: Zap,
-                title: "Optimization",
-                description: "Performance tuning and system optimization",
-                color: "dev-success"
+                title: "Digital Marketing",
+                description: "Grow your online presence and reach",
+                icon: "📈",
+                features: ["SEO optimization", "Social media", "Content strategy", "Analytics"]
+              },
+              {
+                title: "DevOps & Cloud",
+                description: "Scalable infrastructure and deployment",
+                icon: "☁️",
+                features: ["AWS/Azure/GCP", "CI/CD pipelines", "Docker", "Monitoring"]
+              },
+              {
+                title: "Consulting",
+                description: "Strategic guidance for your tech initiatives",
+                icon: "💡",
+                features: ["Architecture review", "Tech strategy", "Code audits", "Team mentoring"]
               }
             ].map((service, index) => (
-              <Card key={index} className="dev-elevated dev-border border dev-interactive group">
+              <Card key={index} className="bg-mine-shaft border-border hover:border-neon-cyan/50 transition-all duration-300 hover:transform hover:scale-105">
                 <CardHeader>
-                  <service.icon className={`h-12 w-12 ${service.color} mb-4 group-hover:scale-110 transition-transform`} />
-                  <CardTitle className="dev-text-primary">{service.title}</CardTitle>
+                  <div className="text-4xl mb-4">{service.icon}</div>
+                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <CardDescription>{service.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="dev-text-secondary">
-                    {service.description}
-                  </CardDescription>
+                  <ul className="space-y-2">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center text-sm text-muted">
+                        <CheckCircle className="h-4 w-4 text-neon-green mr-2 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
                 </CardContent>
               </Card>
             ))}
@@ -124,39 +212,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: Users, value: "500+", label: "Happy Clients" },
-              { icon: CheckCircle, value: "1000+", label: "Projects Completed" },
-              { icon: Clock, value: "24/7", label: "Support Available" },
-              { icon: Star, value: "4.9/5", label: "Client Rating" }
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <stat.icon className="h-8 w-8 dev-accent mx-auto mb-4" />
-                <div className="text-3xl font-bold dev-text-primary mb-2">{stat.value}</div>
-                <div className="dev-text-secondary">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="py-20 dev-elevated">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold dev-text-primary mb-6">
-            Ready to Build Something Amazing?
+      <section className="py-24 px-6 bg-gradient-to-r from-neon-cyan/10 to-electric-blue/10">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Start Your Next Project?
           </h2>
-          <p className="text-xl dev-text-secondary mb-8">
-            Join hundreds of satisfied clients who trust us with their tech projects
+          <p className="text-xl text-muted mb-8">
+            Join thousands of satisfied clients who trust FreelanceHub for their digital needs
           </p>
-          <Button size="lg" className="dev-bg-accent text-black font-semibold px-12 py-6 text-lg dev-interactive">
-            Get Your Free Quote
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              onClick={() => router.push('/register')}
+              size="lg" 
+              className="bg-neon-cyan hover:bg-neon-cyan/90 text-cod-gray font-semibold"
+            >
+              Start Your Project
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button 
+              onClick={() => router.push('/projects')}
+              variant="outline" 
+              size="lg"
+              className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-cod-gray"
+            >
+              Browse Projects
+            </Button>
+          </div>
         </div>
       </section>
     </div>
