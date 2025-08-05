@@ -12,7 +12,7 @@ export const calAccounts: CalAccount[] = [
   {
     username: "naman9271",
     name: "Naman",
-    role: "Tech Lead"
+    role: "Developer"
   },
   {
     username: "amank1412", 
