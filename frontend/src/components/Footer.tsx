@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { 
   Code2, 
   Github, 
@@ -111,20 +112,24 @@ const Footer = () => {
               Ready to transform your digital presence? Let's discuss your project today.
             </p>
             <div className="space-y-3">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full px-6 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-medium hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
-              >
-                Start Your Project
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full px-6 py-3 border border-border hover:border-primary/50 text-foreground rounded-lg font-medium hover:bg-primary/5 transition-all duration-300"
-              >
-                Book Consultation
-              </motion.button>
+              <Link href="/coming-soon">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full px-6 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-medium hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+                >
+                  Start Your Project
+                </motion.button>
+              </Link>
+              <Link href="/coming-soon">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full px-6 py-3 border border-border hover:border-primary/50 text-foreground rounded-lg font-medium hover:bg-primary/5 transition-all duration-300"
+                >
+                  Book Consultation
+                </motion.button>
+              </Link>
             </div>
           </div>
         </div>

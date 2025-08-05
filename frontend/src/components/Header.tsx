@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Menu, X, Code2 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,13 +47,15 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-medium hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
-            >
-              Get Started
-            </motion.button>
+            <Link href="/coming-soon">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-2 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-medium hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              >
+                Get Started
+              </motion.button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -83,9 +86,11 @@ const Header = () => {
                   {item}
                 </a>
               ))}
-              <button className="mt-4 px-6 py-2 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-medium">
-                Get Started
-              </button>
+              <Link href="/coming-soon">
+                <button className="mt-4 px-6 py-2 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-medium">
+                  Get Started
+                </button>
+              </Link>
             </nav>
           </motion.div>
         )}
