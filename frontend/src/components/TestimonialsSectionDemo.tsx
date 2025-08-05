@@ -7,7 +7,7 @@ const testimonials = [
       handle: "@emmatech",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face"
     },
-    text: "100xLabs delivered our e-commerce website ahead of schedule. Their attention to detail and technical expertise exceeded our expectations.",
+    text: "4xLabs delivered our e-commerce website ahead of schedule. Their attention to detail and technical expertise exceeded our expectations.",
     href: "https://twitter.com/emmatech"
   },
   {
@@ -33,7 +33,7 @@ const testimonials = [
       handle: "@marcusco",
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
     },
-    text: "From concept to deployment, 100xLabs handled our full-stack development project flawlessly. Great communication throughout."
+    text: "From concept to deployment, 4xLabs handled our full-stack development project flawlessly. Great communication throughout."
   },
   {
     author: {
@@ -49,7 +49,7 @@ const testimonials = [
       handle: "@alexdev",
       avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&h=150&fit=crop&crop=face"
     },
-    text: "Quick turnaround on API integration and database optimization. 100xLabs saved us weeks of development time."
+    text: "Quick turnaround on API integration and database optimization. 4xLabs saved us weeks of development time."
   },
   {
     author: {
@@ -65,7 +65,7 @@ const testimonials = [
       handle: "@mikefounder",
       avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
     },
-    text: "100xLabs migrated our entire legacy system to the cloud seamlessly. Zero downtime and improved scalability."
+    text: "4xLabs migrated our entire legacy system to the cloud seamlessly. Zero downtime and improved scalability."
   },
   {
     author: {
@@ -121,7 +121,7 @@ export function TestimonialsSectionDemo() {
   return (
     <TestimonialsSection
       title="Trusted by businesses worldwide"
-      description="Join hundreds of satisfied clients who've transformed their digital presence with 100xLabs freelancing services"
+      description="Join hundreds of satisfied clients who've transformed their digital presence with 4xLabs freelancing services"
       testimonials={testimonials}
     />
   )

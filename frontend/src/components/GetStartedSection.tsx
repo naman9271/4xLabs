@@ -34,7 +34,7 @@ const GetStartedSection = () => {
           </h2>
 
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed">
-            Join hundreds of satisfied clients who&apos;ve transformed their digital presence with 100xLabs. 
+            Join hundreds of satisfied clients who&apos;ve transformed their digital presence with 4xLabs. 
             Your success story starts with a single click.
           </p>
 

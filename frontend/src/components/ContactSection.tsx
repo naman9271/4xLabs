@@ -82,7 +82,7 @@ const ContactSection = () => {
                 {
                   icon: Mail,
                   title: "Email Us",
-                  value: "hello@100xlabs.com",
+                  value: "hello@4xLabs.com",
                   description: "We'll respond within 24 hours"
                 },
                 {

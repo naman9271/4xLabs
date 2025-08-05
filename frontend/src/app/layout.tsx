@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "100xlabs",
+  title: "4xLabs",
   description: "Next Gen Freelancing Agency",
 };
 
