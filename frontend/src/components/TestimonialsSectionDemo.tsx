@@ -119,10 +119,12 @@ const testimonials = [
 
 export function TestimonialsSectionDemo() {
   return (
-    <TestimonialsSection
-      title="Trusted by businesses worldwide"
-      description="Join hundreds of satisfied clients who've transformed their digital presence with 4xLabs freelancing services"
-      testimonials={testimonials}
-    />
+    <div id="portfolio">
+      <TestimonialsSection
+        title="Trusted by businesses worldwide"
+        description="Join hundreds of satisfied clients who've transformed their digital presence with 4xLabs freelancing services"
+        testimonials={testimonials}
+      />
+    </div>
   )
 }

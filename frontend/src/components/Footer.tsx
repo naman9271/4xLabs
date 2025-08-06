@@ -14,7 +14,6 @@ import {
 import { useCalBooking } from '@/hooks/useCalBooking';
 import SchedulingModal from '@/components/SchedulingModal';
 import CalBooker from '@/components/CalBooker';
-import { Logo } from '@/components/ui/Logo';
 
 const Footer = () => {
   const { isBookingOpen, selectedAccount, openBooking, closeBooking } = useCalBooking();
@@ -30,14 +29,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="space-y-6">
-            <div className="flex items-center space-x-2">
-              <div className="p-2 rounded-lg bg-gradient-to-br from-primary to-accent">
-                <Logo width={24} height={24} className="brightness-0 invert" />
-              </div>
+            <a href="#home" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+              <img src='/4xLabs_Logo-refactored.png' width={60} height={60} className="brightness-0 invert" />
               <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 4xLabs
               </span>
-            </div>
+            </a>
             <p className="text-muted-foreground leading-relaxed">
               Elite tech innovation labs crafting exceptional digital experiences 
               for forward-thinking businesses worldwide.
@@ -92,19 +89,19 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">Company</h3>
             <ul className="space-y-3">
               {[
-                'About Us',
-                'Our Process',
-                'Portfolio',
-                'Case Studies',
-                'Blog',
-                'Careers'
+                { name: 'About Us', href: '#about' },
+                { name: 'Our Process', href: '#services' },
+                { name: 'Portfolio', href: '#portfolio' },
+                { name: 'Case Studies', href: '#portfolio' },
+                { name: 'Blog', href: '#' },
+                { name: 'Careers', href: '#contact' }
               ].map((item, index) => (
                 <li key={index}>
                   <a 
-                    href="#" 
+                    href={item.href} 
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    {item}
+                    {item.name}
                   </a>
                 </li>
               ))}

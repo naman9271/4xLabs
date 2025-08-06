@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Logo } from '@/components/ui/Logo';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,29 +18,36 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <motion.div
+          <motion.a
+            href="#home"
             whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-2 cursor-pointer"
           >
-            <div className="p-2 rounded-lg bg-gradient-to-br from-primary to-accent">
-              <Logo width={20} height={20} className="brightness-0 invert" />
-            </div>
+            {/* <div className="p-2 rounded-lg bg-gradient-to-br from-primary to-accent"> */}
+              <img src="/4xLabs_Logo-refactored.png" width={45} height={45} className="brightness-0 invert" />
+            {/* </div> */}
             <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               4xLabs
             </span>
-          </motion.div>
+          </motion.a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {['Home', 'Services', 'Portfolio', 'About', 'Contact'].map((item) => (
+            {[
+              { name: 'Home', href: '#home' },
+              { name: 'Services', href: '#services' },
+              { name: 'Portfolio', href: '#portfolio' },
+              { name: 'About', href: '#about' },
+              { name: 'Contact', href: '#contact' }
+            ].map((item) => (
               <motion.a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={item.name}
+                href={item.href}
                 className="text-muted-foreground hover:text-foreground transition-colors relative"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {item}
+                {item.name}
               </motion.a>
             ))}
           </nav>
@@ -77,14 +83,20 @@ const Header = () => {
             className="md:hidden py-4 border-t border-border"
           >
             <nav className="flex flex-col space-y-4">
-              {['Home', 'Services', 'Portfolio', 'About', 'Contact'].map((item) => (
+              {[
+                { name: 'Home', href: '#home' },
+                { name: 'Services', href: '#services' },
+                { name: 'Portfolio', href: '#portfolio' },
+                { name: 'About', href: '#about' },
+                { name: 'Contact', href: '#contact' }
+              ].map((item) => (
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                  key={item.name}
+                  href={item.href}
                   className="text-muted-foreground hover:text-foreground transition-colors py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {item}
+                  {item.name}
                 </a>
               ))}
               <Link href="/coming-soon">

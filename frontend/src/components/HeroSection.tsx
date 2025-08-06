@@ -7,7 +7,7 @@ import { SparklesCore } from './ui/sparkles';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-primary/5">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-primary/5">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <SparklesCore

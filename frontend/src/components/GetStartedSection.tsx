@@ -13,7 +13,7 @@ const GetStartedSection = () => {
   const [isSchedulingModalOpen, setIsSchedulingModalOpen] = React.useState(false);
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section id="about" className="py-20 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/10" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.1)_70%)]" />
