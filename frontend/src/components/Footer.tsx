@@ -4,7 +4,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { 
-  Code2, 
   Github, 
   Twitter, 
   Linkedin, 
@@ -15,6 +14,7 @@ import {
 import { useCalBooking } from '@/hooks/useCalBooking';
 import SchedulingModal from '@/components/SchedulingModal';
 import CalBooker from '@/components/CalBooker';
+import { Logo } from '@/components/ui/Logo';
 
 const Footer = () => {
   const { isBookingOpen, selectedAccount, openBooking, closeBooking } = useCalBooking();
@@ -32,7 +32,7 @@ const Footer = () => {
           <div className="space-y-6">
             <div className="flex items-center space-x-2">
               <div className="p-2 rounded-lg bg-gradient-to-br from-primary to-accent">
-                <Code2 className="h-6 w-6 text-white" />
+                <Logo width={24} height={24} className="brightness-0 invert" />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 4xLabs

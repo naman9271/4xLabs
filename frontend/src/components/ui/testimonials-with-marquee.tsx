@@ -22,6 +22,7 @@ export function TestimonialsSection({
     <section className={cn(
       "bg-background text-foreground",
       "py-12 sm:py-24 md:py-32 px-0",
+      "overflow-x-hidden w-full",
       className
     )}>
       <div className="mx-auto flex max-w-container flex-col items-center gap-4 text-center sm:gap-16">
@@ -35,8 +36,8 @@ export function TestimonialsSection({
         </div>
 
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-          <div className="group flex overflow-hidden p-2 [--gap:1rem] [gap:var(--gap)] flex-row [--duration:120s]">
-            <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee flex-row group-hover:[animation-play-state:paused]">
+          <div className="group flex overflow-hidden p-2 [--gap:1rem] [gap:var(--gap)] flex-row [--duration:120s] w-full">
+            <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee flex-row group-hover:[animation-play-state:paused] min-w-full">
               {[...Array(4)].map((_, setIndex) => (
                 testimonials.map((testimonial, i) => (
                   <TestimonialCard 

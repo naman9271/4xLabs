@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Menu, X, Code2 } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { Logo } from '@/components/ui/Logo';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,7 +24,7 @@ const Header = () => {
             className="flex items-center space-x-2"
           >
             <div className="p-2 rounded-lg bg-gradient-to-br from-primary to-accent">
-              <Code2 className="h-5 w-5 text-white" />
+              <Logo width={20} height={20} className="brightness-0 invert" />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               4xLabs
