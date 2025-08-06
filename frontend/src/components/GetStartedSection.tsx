@@ -4,13 +4,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Rocket, ArrowRight, Sparkles } from 'lucide-react';
 import Link from 'next/link';
-import { useCalBooking } from '@/hooks/useCalBooking';
-import SchedulingModal from '@/components/SchedulingModal';
-import CalBooker from '@/components/CalBooker';
 
 const GetStartedSection = () => {
-  const { isBookingOpen, selectedAccount, openBooking, closeBooking } = useCalBooking();
-  const [isSchedulingModalOpen, setIsSchedulingModalOpen] = React.useState(false);
 
   return (
     <section id="about" className="py-20 relative overflow-hidden">
@@ -45,46 +40,31 @@ const GetStartedSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <Link href="/coming-soon">
-              <motion.button
+            <Link href="#contact">
+              <motion.div
                 whileHover={{ 
                   scale: 1.05, 
                   boxShadow: "0 25px 50px rgba(139, 92, 246, 0.4)" 
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="group px-10 py-5 bg-gradient-to-r from-primary to-accent text-white rounded-xl font-bold text-xl flex items-center space-x-3 hover:shadow-2xl transition-all duration-300 min-w-[250px] justify-center"
+                className="group px-10 py-5 bg-gradient-to-r from-primary to-accent text-white rounded-xl font-bold text-xl flex items-center space-x-3 hover:shadow-2xl transition-all duration-300 min-w-[250px] justify-center cursor-pointer"
               >
                 <Rocket className="h-6 w-6 group-hover:translate-y-[-2px] transition-transform" />
                 <span>Get Started Now</span>
                 <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
+              </motion.div>
             </Link>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setIsSchedulingModalOpen(true)}
-              className="px-10 py-5 border-2 border-border hover:border-primary/50 text-foreground rounded-xl font-bold text-xl hover:bg-primary/5 transition-all duration-300 min-w-[250px]"
-            >
-              Schedule a Call
-            </motion.button>
+            <Link href="https://cal.com/amank1412/30min" target="_blank" rel="noopener noreferrer">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-10 py-5 border-2 border-border hover:border-primary/50 text-foreground rounded-xl font-bold text-xl hover:bg-primary/5 transition-all duration-300 min-w-[250px]"
+              >
+                Schedule a Call
+              </motion.button>
+            </Link>
           </div>
-
-          {/* Scheduling Modal */}
-          <SchedulingModal
-            isOpen={isSchedulingModalOpen}
-            onClose={() => setIsSchedulingModalOpen(false)}
-            onSelectAccount={openBooking}
-          />
-
-          {/* Cal.com Booking Modal */}
-          {selectedAccount && (
-            <CalBooker
-              username={selectedAccount.username}
-              isOpen={isBookingOpen}
-              onClose={closeBooking}
-            />
-          )}
 
           {/* Trust indicators */}
           <motion.div

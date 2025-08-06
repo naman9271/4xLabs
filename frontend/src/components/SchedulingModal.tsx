@@ -36,43 +36,37 @@ export default function SchedulingModal({ isOpen, onClose, onSelectAccount }: Sc
           </div>
           <h2 className="text-2xl font-bold mb-2">Schedule a Meeting</h2>
           <p className="text-muted-foreground">
-            Choose who you&apos;d like to meet with
+            Book a consultation with our team
           </p>
         </div>
 
-        {/* Account selection */}
+        {/* Direct booking button */}
         <div className="space-y-3">
-          {calAccounts.map((account, index) => (
-            <motion.button
-              key={account.username}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              onClick={() => {
-                onSelectAccount(account);
-                onClose();
-              }}
-              className="w-full p-4 border border-border hover:border-primary/50 rounded-lg hover:bg-primary/5 transition-all duration-300 text-left group"
-            >
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors">
-                  <User className="h-5 w-5 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">{account.name}</h3>
-                  {account.role && (
-                    <p className="text-sm text-muted-foreground">{account.role}</p>
-                  )}
-                </div>
+          <motion.a
+            href="https://cal.com/amank1412/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            onClick={onClose}
+            className="block w-full p-4 border border-border hover:border-primary/50 rounded-lg hover:bg-primary/5 transition-all duration-300 text-left group"
+          >
+            <div className="flex items-center space-x-3">
+              <div className="p-2 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors">
+                <User className="h-5 w-5 text-primary" />
               </div>
-            </motion.button>
-          ))}
+              <div>
+                <h3 className="font-semibold">Book with Aman</h3>
+                <p className="text-sm text-muted-foreground">Developer & Consultant</p>
+              </div>
+            </div>
+          </motion.a>
         </div>
 
         {/* Footer */}
         <div className="mt-6 text-center">
           <p className="text-xs text-muted-foreground">
-            You&apos;ll be redirected to our scheduling platform
+            You&apos;ll be redirected to Cal.com to book your meeting
           </p>
         </div>
       </motion.div>

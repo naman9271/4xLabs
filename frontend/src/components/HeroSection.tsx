@@ -70,22 +70,24 @@ const HeroSection = () => {
             transition={{ duration: 1, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
-            <motion.button
+            <motion.a
+              href="#contact"
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(139, 92, 246, 0.3)" }}
               whileTap={{ scale: 0.95 }}
               className="group px-8 py-4 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-semibold text-lg flex items-center space-x-2 hover:shadow-2xl transition-all duration-300"
             >
               <span>Start Your Project</span>
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+            </motion.a>
 
-            <motion.button
+            <motion.a
+              href="#portfolio"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 border border-border hover:border-primary/50 text-foreground rounded-lg font-semibold text-lg hover:bg-primary/5 transition-all duration-300"
             >
               View Our Work
-            </motion.button>
+            </motion.a>
           </motion.div>
 
           {/* Feature Icons */}
